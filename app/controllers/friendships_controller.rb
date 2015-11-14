@@ -18,10 +18,8 @@ class FriendshipsController < ApplicationController
 
   def accept
     @friendship.accept_friendship
-
     # Make the public activity gem able to track friendships
     @friendship.create_activity key: "friendship.accepted", owner: @friendship.user, recipient: @friendship.friend
-
     respond_to do |format|
       format.html { redirect_to users_path, notice: "Friendship Accepted" }
     end
