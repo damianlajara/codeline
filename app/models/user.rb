@@ -48,6 +48,9 @@ class User < ActiveRecord::Base
         friendships.first.user == self ? "pending" : "requested"
       end
     end
+  end
 
+  def friendship_relation(friend)
+    friendship = Friendship.where(user_id: [self.id, friend.id], friend_id: [self.id, friend.id]).first
   end
 end
