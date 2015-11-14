@@ -1,0 +1,6 @@
+<!-- Make sure to check that the activity still exists. If we delete a post, friendship or w.e it is that we are tracking, the activity will still be tracking it since we are not explicitly deleting the activity upon the dependent destroy -->
+<%= if activity.trackable %>
+  <p>
+    <%= link_to activity.owner.username, user_path(activity.ownder.username) %> is now friends with <%= link_to activity.recipient.username, user_path(activity.recipient) %>!
+  </p>
+<% end %>
