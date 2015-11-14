@@ -30,4 +30,24 @@ class User < ActiveRecord::Base
   def active_friends
     self.friendships.where(state: "active").map(&:friend) + self.inverse_friendships.where(state: "active").map(&:user)
   end
+
+  def friendship_status(friend)
+    # Friendships will always return an array with two elements, for both sides of the friendship. Since both of these friendships have the same users in it, we just need to get one
+    friendships = Friendship.where(user_id: [self.id, friend.id], friend_id: [self.id, friend.id])
+    if friendships.none?
+      # There are no friendships found
+      "not friends"
+    else
+      # We found a friendship! Now, let's check it's status
+      if friendships.first.state == "active"
+        "friends"
+      else
+        # There can only be two states here
+        # We sent a friendship request, but it hasn't been accepted (Pending)
+        # Someone sent us a friendship request, but it hasn't been accepted (Requested)
+        friendships.first.user == self ? "pending" : "requested"
+      end
+    end
+
+  end
 end
