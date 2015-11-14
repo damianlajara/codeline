@@ -16,12 +16,12 @@ class User < ActiveRecord::Base
     self.friendships.create(friend: friend)
   end
 
-  # Pending friend requests we havent accepted
+  # Pending friend requests FROM another user we havent accepted
   def pending_friend_requests
     self.inverse_friendships.where(state: "pending")
   end
 
-  # Friendships we requested, but they havent accepted
+  # Friendships TO another user that we requested, but they havent accepted
   def pending_user_requests
     self.friendships.where(state: "pending")
   end

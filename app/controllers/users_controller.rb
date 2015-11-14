@@ -2,7 +2,18 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
 
   def index
-    @users = User.all
+    @users =
+      case params[:people]
+      when "friends"
+        current_user.active_friends
+      when "requests"
+        current_user.pending_friend_requests.map(&:user)
+      when "pending"
+        current_user.pending_user_requests.map(&:friend)
+      else
+        # I should not be allowed to see myself in my friends list
+        User.where.not(id: current_user.id)
+      end
   end
 
   def show
