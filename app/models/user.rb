@@ -15,4 +15,19 @@ class User < ActiveRecord::Base
   def request_friendship(friend)
     self.friendships.create(friend: friend)
   end
+
+  # Pending friend requests we havent accepted
+  def pending_friend_requests
+    self.inverse_friendships.where(state: "pending")
+  end
+
+  # Friendships we requested, but they havent accepted
+  def pending_user_requests
+    self.friendships.where(state: "pending")
+  end
+
+  # Get all of the friends that have already accepted friendships
+  def active_friends
+    self.friendships.where(state: "active").map(&:friend) + self.inverse_friendships.where(state: "active").map(&:user)
+  end
 end
