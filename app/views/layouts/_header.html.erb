@@ -18,7 +18,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <li><a href="#">Timeline</a></li>
+          <li><%= link_to "Timeline", activities_path %></li>
           <li><%= link_to "People", users_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= gravatar_tag current_user.email, size: 20 %><%= current_user.username %> <span class="caret"></span></a>

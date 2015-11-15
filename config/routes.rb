@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
   end
   resources :posts, only: [:create, :edit, :update, :destroy]
+  resources :activities, only: [:index]
   # The priority is based upon order of creation: firsst created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
