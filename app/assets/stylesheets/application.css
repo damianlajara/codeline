@@ -14,3 +14,8 @@
  *= require_tree .
  *= require_self
  */
+
+.reset {
+  padding: 0 !important;
+  margin: 0 !important;
+}

@@ -20,7 +20,7 @@
     }
 
     .timeline > li {
-        margin-bottom: 20px;
+        margin-bottom: 1em;
         position: relative;
     }
 
@@ -47,12 +47,12 @@
         .timeline > li > .timeline-panel {
             width: 46%;
             float: left;
-            border: 1px solid #d4d4d4;
+            border: 3px solid #5bc0de;
             border-radius: 2px;
             padding: 20px;
             position: relative;
-            -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+            -webkit-box-shadow: 0 6px 6px rgba(0, 0, 0, 0.175);
+            box-shadow: 0 6px 6px rgba(0, 0, 0, 0.175);
         }
 
             .timeline > li > .timeline-panel:before {
@@ -61,8 +61,8 @@
                 right: -15px;
                 display: inline-block;
                 border-top: 15px solid transparent;
-                border-left: 15px solid #ccc;
-                border-right: 0 solid #ccc;
+                border-left: 15px solid #5bc0de;
+                border-right: 0 solid #5bc0de;
                 border-bottom: 15px solid transparent;
                 content: " ";
             }
@@ -73,8 +73,8 @@
                 right: -14px;
                 display: inline-block;
                 border-top: 14px solid transparent;
-                border-left: 14px solid #fff;
-                border-right: 0 solid #fff;
+                border-left: 14px solid #5bc0de;
+                border-right: 0 solid #5bc0de;
                 border-bottom: 14px solid transparent;
                 content: " ";
             }
