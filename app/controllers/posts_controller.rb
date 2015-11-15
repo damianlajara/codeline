@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:edit, :update, :destroy]
+  before_action :set_post, only: [:edit, :update, :destroy, :upvote, :downvote]
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
@@ -36,7 +36,18 @@ class PostsController < ApplicationController
     end
   end
 
+  def upvote
+    @post.upvote_from current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @post.downvote_from current_user
+    redirect_to :back
+  end
+
   private
+
 
   def set_post
     @post = Post.find(params[:id])

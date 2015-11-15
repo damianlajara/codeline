@@ -4,13 +4,22 @@ Rails.application.routes.draw do
   get 'posts/show'
 
   devise_for :users, controllers: { registrations: 'registrations' }
+
   resources :users, only: [:show, :index]
+
   resources :friendships, only: [:create, :destroy, :accept] do
     member do
       put :accept
     end
   end
-  resources :posts, only: [:create, :edit, :update, :destroy]
+
+  resources :posts, only: [:create, :edit, :update, :destroy, :like, :unlike] do
+    member do
+      put "like" => "posts#upvote"
+      put "unlike" => "posts#downvote"
+    end
+  end
+
   resources :activities, only: [:index]
   # The priority is based upon order of creation: firsst created -> highest priority.
   # See how all your routes lay out with "rake routes".

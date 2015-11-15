@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
 
   has_many :posts, dependent: :destroy
 
+  acts_as_voter
+
   def request_friendship(friend)
     self.friendships.create(friend: friend)
   end

@@ -1,5 +1,15 @@
 <% if activity.trackable %>
+<% post = Post.find(activity.trackable_id) %>
   <p>
     <%= link_to activity.owner.username, user_path(activity.owner.username) %> posted something <%= time_ago_in_words(activity.created_at) %> ago
+    <%= link_to like_post_path(post), method: :put do %>
+      <%= fa_icon "thumbs-o-up" %>
+      <span class="badge"><%= post.get_upvotes.size %></span>
+    <% end %>
+
+    <%= link_to unlike_post_path(post), method: :put do%>
+      <%= fa_icon "thumbs-o-down" %>
+      <span class="badge"><%= post.get_downvotes.size %></span>
+    <% end %>
   </p>
 <% end %>
