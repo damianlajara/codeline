@@ -53,3 +53,5 @@ gem 'public_activity'
 gem "auto_html"
 gem "font-awesome-rails"
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'private_pub'
+gem 'thin'

@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id", dependent: :destroy
 
   has_many :posts, dependent: :destroy
-
+  has_many :conversations, foreign_key: :sender_id
   acts_as_voter
 
   def request_friendship(friend)
