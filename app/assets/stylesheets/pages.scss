@@ -25,6 +25,22 @@ body {
   height: auto;
 }
 
+.toggle-sidebar {
+  position: absolute;
+  top: 20px;
+  z-index: 999;
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin-left: 10px;
+  background: transparent;
+  border: none;
+  i {
+    color: black;
+    font-size: 2em;
+  }
+}
+
 /*
 Fade content bs-carousel with hero headers
 Code snippet by maridlcrmn (Follow me on Twitter @maridlcrmn) for Bootsnipp.com
