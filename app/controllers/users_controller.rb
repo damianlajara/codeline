@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show]
+  before_action :get_counts, only: [:index]
 
   def index
     @users =
@@ -23,6 +24,11 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def get_counts
+    @friend_count = current_user.active_friends.count
+    @pending_count =  current_user.pending_user_requests.map(&:friend).count
+  end
   def set_user
     @user = User.find_by(username: params[:id])
   end

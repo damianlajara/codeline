@@ -38,7 +38,7 @@
     </div>
     <!-- Post Zone -->
     <div class="col-md-6">
-      <%= render "posts/form" %>
+      <%= render "posts/form" if current_user && current_user == @user %>
       <%= render @posts %>
     </div>
     <!-- Profile Zone -->
