@@ -12,6 +12,7 @@ class ConversationsController < ApplicationController
         # If not, then simply create a new one
         Conversation.create!(conversation_params)
       end
+    p @conversation
       # Return a json response with the id of the conversation
     render json: { conversation_id: @conversation.id }
   end

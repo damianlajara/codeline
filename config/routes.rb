@@ -21,6 +21,11 @@ Rails.application.routes.draw do
   end
 
   resources :activities, only: [:index]
+
+  resources :conversations, only: [:create, :show] do
+    resources :messages, only: [:create]
+  end
+
   # The priority is based upon order of creation: firsst created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

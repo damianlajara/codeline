@@ -4,6 +4,7 @@
   <title>Codeline</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -13,8 +14,10 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12 reset">
-            <%= link_to "#", class: "toggle-sidebar", "data-toggle" => "offcanvas" do %>
-              <%= fa_icon "navicon" %>
+            <% if user_signed_in? %>
+              <%= link_to "#", class: "toggle-sidebar", "data-toggle" => "offcanvas" do %>
+                <%= fa_icon "navicon" %>
+              <% end %>
             <% end %>
             <%= bootstrap_flash class: "text-center" %>
             <%= yield %>
@@ -22,6 +25,8 @@
         </div>
       </div>
     </div>
+  <% if user_signed_in? %>
   </div> <!-- End sidebar -->
+  <% end %>
 </body>
 </html>
