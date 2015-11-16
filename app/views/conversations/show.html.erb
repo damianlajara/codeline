@@ -2,8 +2,7 @@
   <div class="col-md-5">
     <div class="panel panel-info chat-window">
       <div class="panel-heading chatboxhead">
-        <%= fa_icon "commenting-o" %>Chat with
-        <%= @reciever.username %>
+        <%= fa_icon "commenting-o" %>Chat with <%= @reciever.username %>
         <div class="btn-group pull-right chat-actions">
           <%= link_to "#", class: "toggleChatBox", "data-cid" => @conversation.id do %>
             <%= fa_icon "minus" %>
@@ -14,8 +13,8 @@
           <% end %>
         </div>
       </div>
-        <div class="panel-body">
-          <ul class="chat chatboxcontent">
+        <div class="panel-body chatboxcontent">
+          <ul class="chat">
             <% if @messages.any? %>
               <%= render @messages %>
             <% end %>
@@ -23,12 +22,18 @@
         </div>
         <div class="panel-footer chatboxinput">
           <%= form_for([@conversation, @message], :remote => true, :html => {id: "conversation_form_#{@conversation.id}"}) do |f| %>
-            <%= f.text_area :body, id: "btn-input", class: "chatboxtextarea form-control input-sm", placeholder: "Type your message here...", "data-cid" => @conversation.id %>
-            <span class="input-group-btn">
-              <button class="btn btn-info btn-sm" id="btn-chat">
-                Send
-              </button>
-            </span>
+          <div class="row">
+            <div class="col-md-10">
+              <%= f.text_area :body, id: "btn-input", class: "chatboxtextarea form-control input-sm", placeholder: "Type your message here...", "data-cid" => @conversation.id %>
+            </div>
+            <div class="col-md-2 paddingl0">
+              <span class="input-group-btn">
+                <button class="btn btn-info btn-md" id="btn-chat">
+                  Send
+                </button>
+              </span>
+            </div>
+          </div>
           <% end %>
         </div>
     </div>

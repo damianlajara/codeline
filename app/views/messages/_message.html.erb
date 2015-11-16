@@ -2,18 +2,18 @@
 <% position = me == "self" ? "right" : "left"%>
 <li class="<%= position %> clearfix <%= me %>">
   <span class="chat-img pull-<%= position %>">
-    <%= gravatar_tag get_user_from(message).email, size: 60, class: "img-circle", alt: "User Avatar" %>
+    <%= gravatar_tag get_user_from(message).email, size: 35 %>
   </span>
   <div class="chat-body clearfix">
       <div class="header">
           <% if position == "left" %>
             <strong class="primary-font"><%= get_user_from(message).username %></strong>
             <small class="pull-right text-muted">
-              <%= fa_icon "clock-o" %><%= time_ago_in_words(message.created_at)%>
+              <%= fa_icon "clock-o" %><%= time_ago_in_words(message.created_at)%> ago
             </small>
           <% else %>
             <small class="text-muted">
-              <%= fa_icon "clock-o" %><%= time_ago_in_words(message.created_at)%>
+              <%= fa_icon "clock-o" %><%= time_ago_in_words(message.created_at)%> ago
             </small>
             <strong class="pull-right primary-font"><%= get_user_from(message).username %></strong>
           <% end %>

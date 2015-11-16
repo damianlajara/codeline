@@ -1,5 +1,22 @@
+.marginl0 {
+  margin-left: 0;
+}
+
+.marginr0 {
+  margin-right: 0;
+}
+
+.paddingl0 {
+  padding-left: 0;
+}
+
+.paddingr0 {
+  padding-right: 0;
+}
+
 .panel.chat-window {
     width: 500px;
+    margin-bottom: 0;
 }
 
 .chat
@@ -16,11 +33,22 @@
 
 }
 
+#btn-chat {
+  margin: 0 auto;
+}
+.header small i {
+  margin-right: 5px;
+}
+
 .chat li
 {
     margin-bottom: 10px;
     padding-bottom: 5px;
     border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat-img img {
+  border-radius: 50%;
 }
 
 .chat li.left .chat-body

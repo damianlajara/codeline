@@ -10,9 +10,9 @@ var ready = function () {
         e.preventDefault();
         console.log("Clicked on send message");
         var sender_id = $(this).data('sid');
-        console.log("sender id" + sender_id);
+        // console.log("sender id" + sender_id);
         var recipient_id = $(this).data('rip');
-        console.log("recipient id" + recipient_id);
+        // console.log("recipient id" + recipient_id);
 
         $.post("/conversations", { sender_id: sender_id, recipient_id: recipient_id }, function (data) {
             chatBox.chatWith(data.conversation_id);
@@ -25,8 +25,9 @@ var ready = function () {
 
     $(document).on('click', '.toggleChatBox', function (e) {
         e.preventDefault();
-
+        console.log("Clicked on minimize!");
         var id = $(this).data('cid');
+        console.log("minimize-id: " + id);
         chatBox.toggleChatBoxGrowth(id);
     });
 
@@ -36,7 +37,7 @@ var ready = function () {
 
     $(document).on('click', '.closeChat', function (e) {
         e.preventDefault();
-
+        console.log("Clicked on close chat!");
         var id = $(this).data('cid');
         chatBox.close(id);
     });
@@ -48,7 +49,7 @@ var ready = function () {
      */
 
     $(document).on('keydown', '.chatboxtextarea', function (event) {
-
+        console.log("Pressed enter!");
         var id = $(this).data('cid');
         chatBox.checkInputKey(event, $(this), id);
     });
@@ -60,7 +61,7 @@ var ready = function () {
 
     $('a.conversation').click(function (e) {
         e.preventDefault();
-
+        console.log("Clicked on start chat!");
         var conversation_id = $(this).data('cid');
         chatBox.chatWith(conversation_id);
     });

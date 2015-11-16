@@ -5,14 +5,15 @@
     var sender_id = "<%= @message.user.id %>";
     // Find out who the recipient is when publishing notifications
     var reciever_id = $('meta[name=user-id]').attr("content");
+    console.log("Got id from meta tag");
 
     chatbox.append("<%= j render( partial: @message ) %>");
-    chatbox.scrollTop(chatbox[0].scrollHeight);
+    // chatbox.scrollTop(chatbox[0].scrollHeight);
 
     if(sender_id != reciever_id){
     	chatBox.chatWith(id);
-        chatbox.children().last().removeClass("self").addClass("other");
-    	chatbox.scrollTop(chatbox[0].scrollHeight);
-        chatBox.notify();
+      chatbox.children().last().removeClass("self").addClass("other");
+    	// chatbox.scrollTop(chatbox[0].scrollHeight);
+        // chatBox.notify();
     }
 <% end %>

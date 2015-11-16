@@ -98,7 +98,7 @@ var ready = function () {
 
             $.get("conversations/" + conversation_id, function (data) {
                 $('#chatbox_' + conversation_id).html(data);
-                $("#chatbox_" + conversation_id + " .chatboxcontent").scrollTop($("#chatbox_" + conversation_id + " .chatboxcontent")[0].scrollHeight);
+                // $("#chatbox_" + conversation_id + " .chatboxcontent").scrollTop($("#chatbox_" + conversation_id + " .chatboxcontent")[0].scrollHeight);
             }, "html");
 
             $("#chatbox_" + conversation_id).css('bottom', '0px');
@@ -180,7 +180,7 @@ var ready = function () {
                     $('#conversation_form_' + conversation_id).submit();
                     $(chatboxtextarea).val('');
                     $(chatboxtextarea).focus();
-                    $(chatboxtextarea).css('height', '44px');
+                    // $(chatboxtextarea).css('height', '44px');
                 }
             }
 
@@ -228,7 +228,7 @@ var ready = function () {
                 $.cookie('chatbox_minimized', newCookie);
                 $('#chatbox_' + conversation_id + ' .chatboxcontent').css('display', 'block');
                 $('#chatbox_' + conversation_id + ' .chatboxinput').css('display', 'block');
-                $("#chatbox_" + conversation_id + " .chatboxcontent").scrollTop($("#chatbox_" + conversation_id + " .chatboxcontent")[0].scrollHeight);
+                // $("#chatbox_" + conversation_id + " .chatboxcontent").scrollTop($("#chatbox_" + conversation_id + " .chatboxcontent")[0].scrollHeight);
             } else {
 
                 var newCookie = conversation_id;
