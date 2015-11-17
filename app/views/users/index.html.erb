@@ -1,10 +1,55 @@
 <div class="jumbotron text-center">
   <h2>People</h2>
-  <div class="btn-group text-center" role="group" aria-label="Default Button Groups">
-     <%= link_to "Everyone", users_path, class: "btn btn-default #{'active' unless params[:people]}" %>
-     <%= link_to "Friends (#{@friend_count})", users_path(people: "friends"), class: "btn btn-default #{'active' if params[:people] == 'friends'}" %>
-     <%= link_to "Requests (#{request_count})", users_path(people: "requests"), class: "btn btn-default #{'active' if params[:people] == 'requests'}" %>
-     <%= link_to "Pending (#{@pending_count})", users_path(people: "pending"), class: "btn btn-default #{'active' if params[:people] == 'pending'}" %>
+  <div class="row">
+    <div class="liner"></div>
+    <div class="col-md-3">
+      <div class="item #{'active' unless params[:people]}">
+        <p class="text-center">
+          Everyone
+        </p>
+        <%= link_to users_path do %>
+        <span class="round-tabs one">
+          <%= fa_icon "home" %>
+        </span>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="item #{'active' if params[:people] == 'friends'}">
+        <p class="text-center">
+          Friends (<%= @friend_count %>)
+        </p>
+        <%= link_to users_path(people: "friends") do %>
+        <span class="round-tabs two">
+          <%= fa_icon "users" %>
+        </span>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="item #{'active' if params[:people] == 'requests'}">
+        <p class="text-center">
+          Requests (<%= request_count %>)
+        </p>
+        <%= link_to users_path(people: "requests") do  %>
+        <span class="round-tabs three">
+          <%= fa_icon "bullhorn" %>
+        </span>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="item #{'active' if params[:people] == 'pending'}">
+        <p class="text-center">
+          Pending (<%= @pending_count %>)
+        </p>
+        <%= link_to users_path(people: "pending") do  %>
+        <span class="round-tabs four">
+          <%= fa_icon "refresh" %>
+        </span>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 

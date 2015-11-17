@@ -1,0 +1,90 @@
+.nav-tabs > div.item.active > a,
+.nav-tabs > div.item.active > a:hover,
+.nav-tabs > div.item.active > a:focus {
+  color: #555;
+  cursor: default;
+  /* background-color: #ffffff; */
+  border: 0;
+  border-bottom-color: transparent;
+}
+
+span.round-tabs {
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  display: inline-block;
+  border-radius: 100px;
+  background: white;
+  z-index: 2;
+  text-align: center;
+  font-size: 25px;
+}
+span.round-tabs.one {
+  color: rgb(34, 194, 34);
+  border: 2px solid rgb(34, 194, 34);
+}
+div.item.active span.round-tabs.one {
+  background: #fff !important;
+  border: 2px solid #ddd;
+  color: rgb(34, 194, 34);
+}
+span.round-tabs.two {
+  color: #febe29;
+  border: 2px solid #febe29;
+}
+div.item.active span.round-tabs.two {
+  background: #fff !important;
+  border: 2px solid #ddd;
+  color: #febe29;
+}
+span.round-tabs.three {
+  color: #3e5e9a;
+  border: 2px solid #3e5e9a;
+}
+div.item.active span.round-tabs.three {
+  background: #fff !important;
+  border: 2px solid #ddd;
+  color: #3e5e9a;
+}
+span.round-tabs.four {
+  color: #f1685e;
+  border: 2px solid #f1685e;
+}
+div.item.active span.round-tabs.four {
+  background: #fff !important;
+  border: 2px solid #ddd;
+  color: #f1685e;
+}
+
+.liner {
+  height: 2px;
+  background: #ddd;
+  position: relative;
+  width: 75%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 80px;
+}
+
+/*div.item:after {
+  content: " ";
+  position: absolute;
+  left: 45%;
+  opacity: 0;
+  margin: 0 auto;
+  bottom: 0;
+  border: 5px solid blue;
+  border-bottom-color: #ddd;
+  transition: 0.1s ease-in-out;
+}
+div.item.active:after {
+  content: " ";
+  position: absolute;
+  left: 45%;
+  opacity: 1;
+  margin: 0 auto;
+  bottom: 0;
+  border: 10px solid red;
+  border-bottom-color: #ddd;
+}*/
