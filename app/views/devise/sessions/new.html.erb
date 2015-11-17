@@ -5,9 +5,9 @@
       <div class="login-modal">
 
         <div class="card card-container">
-          <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-          <img class="profile-img-card" id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"/>
-          <p class="profile-name-card" id="profile-name"></p>
+          
+          <%= image_tag "avatar-img", class: "profile-img-card" %>
+          <p class="profile-name-card">Login</p>
 
           <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-signin"}) do |f| %>
 
@@ -29,3 +29,10 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('#login-modal').modal({
+    keyboard: false,
+    backdrop: 'static'
+  });
+</script>
