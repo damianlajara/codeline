@@ -1,14 +1,25 @@
-<div class="col-md-3">
-  <div class="thumbnail">
-    <%= link_to user_path(user.username) do %>
-      <%= gravatar_tag user.email, size: 200 %>
-    <% end %>
-    <%= link_to "Send Message", "#", class: "btn btn-info btn-xs start-conversation",
+<div class="row">
+  <div class="media col-md-3">
+    <figure class="pull-left">
+      <%= link_to user_path(user.username) do %>
+        <%= gravatar_tag user.email, size: 200 %>
+      <% end %>
+    </figure>
+  </div>
+  <div class="col-md-6">
+    <h4><%= user.username %></h4>
+    <p>
+      Qui diam libris ei, vidisse incorrupte at mel. His euismod salutandi dissentiunt eu. Habeo offendit ea mea. Nostro blandit sea ea, viris timeam molestiae an has. At nisl platonem eum. Vel et nonumy gubergren, ad has tota facilis probatus. Ea legere
+      legimus tibique cum, sale tantas vim ea, eu vivendo expetendis vim.
+    </p>
+  </div>
+  <div class="col-md-3 text-center">
+    <h2>
+      20<small> Mutual friends</small>
+    </h2>
+    <%= link_to "Send Message", "#", class: "btn btn-info btn-md btn-block start-conversation",
                 "data-sid" => current_user.id, "data-rip" => user.id %>
-
-    <div class="caption">
-      <h3><%= user.username %></h3>
-      <p><%= action_buttons_for_status_of(user) %></p>
-    </div>
+    <%= action_buttons_for_status_of(user) %>
   </div>
 </div>
+<hr>
