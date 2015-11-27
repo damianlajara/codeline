@@ -5,48 +5,57 @@
     <div class="col-md-3">
       <div class="item #{'active' unless params[:people]}">
         <p class="text-center">
-          Everyone
+          Explore
         </p>
         <%= link_to users_path do %>
-        <span class="round-tabs one">
-          <%= fa_icon "home" %>
-        </span>
+          <span class="round-tabs one">
+            <%= fa_icon "home" %>
+          </span>
         <% end %>
       </div>
     </div>
     <div class="col-md-3">
       <div class="item #{'active' if params[:people] == 'friends'}">
         <p class="text-center">
-          Friends (<%= @friend_count %>)
+          Friends
         </p>
         <%= link_to users_path(people: "friends") do %>
-        <span class="round-tabs two">
-          <%= fa_icon "users" %>
-        </span>
+          <span class="round-tabs two">
+            <%= fa_icon "users" %>
+            <% unless @friend_count.zero? %>
+              <span class="tab-badge two"><%= @friend_count %></span>
+            <% end %>
+          </span>
         <% end %>
       </div>
     </div>
     <div class="col-md-3">
       <div class="item #{'active' if params[:people] == 'requests'}">
         <p class="text-center">
-          Requests (<%= request_count %>)
+          Requests
         </p>
         <%= link_to users_path(people: "requests") do  %>
-        <span class="round-tabs three">
-          <%= fa_icon "bullhorn" %>
-        </span>
+          <span class="round-tabs three">
+            <%= fa_icon "bullhorn" %>
+            <% unless request_count.zero? %>
+              <span class="tab-badge three"><%= request_count %></span>
+            <% end %>
+          </span>
         <% end %>
       </div>
     </div>
     <div class="col-md-3">
       <div class="item #{'active' if params[:people] == 'pending'}">
         <p class="text-center">
-          Pending (<%= @pending_count %>)
+          Pending
         </p>
         <%= link_to users_path(people: "pending") do  %>
-        <span class="round-tabs four">
-          <%= fa_icon "refresh" %>
-        </span>
+          <span class="round-tabs four">
+            <%= fa_icon "refresh" %>
+            <% unless @pending_count.zero? %>
+              <span class="tab-badge four"><%= @pending_count %></span>
+            <% end %>
+          </span>
         <% end %>
       </div>
     </div>
@@ -56,7 +65,13 @@
 <div class="container">
   <div class="well list-container">
     <ul class="list">
-      <%= render @users %>
+      <% if @users.empty? %>
+      <h3 class="text-center">
+          You have no <%= params[:people] %> at the moment.
+      </h3>
+      <% else %>
+        <%= render @users %>
+      <% end %>
     </ul>
   </div>
 </div>

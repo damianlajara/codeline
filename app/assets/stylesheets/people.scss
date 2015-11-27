@@ -19,38 +19,38 @@ span.round-tabs {
   text-align: center;
   font-size: 25px;
 }
-span.round-tabs.one {
+span.round-tabs.one, span.tab-badge.one {
   color: rgb(34, 194, 34);
   border: 2px solid rgb(34, 194, 34);
 }
-div.item.active span.round-tabs.one {
+div.item.active span.round-tabs.one, div.item.active span.tab-badge.one {
   background: #fff !important;
   border: 2px solid #ddd;
   color: rgb(34, 194, 34);
 }
-span.round-tabs.two {
+span.round-tabs.two, span.tab-badge.two {
   color: #febe29;
   border: 2px solid #febe29;
 }
-div.item.active span.round-tabs.two {
+div.item.active span.round-tabs.two, div.item.active span.tab-badge.two {
   background: #fff !important;
   border: 2px solid #ddd;
   color: #febe29;
 }
-span.round-tabs.three {
+span.round-tabs.three, span.tab-badge.three {
   color: #3e5e9a;
   border: 2px solid #3e5e9a;
 }
-div.item.active span.round-tabs.three {
+div.item.active span.round-tabs.three, div.item.active span.tab-badge.three {
   background: #fff !important;
   border: 2px solid #ddd;
   color: #3e5e9a;
 }
-span.round-tabs.four {
+span.round-tabs.four, span.tab-badge.four {
   color: #f1685e;
   border: 2px solid #f1685e;
 }
-div.item.active span.round-tabs.four {
+div.item.active span.round-tabs.four, div.item.active span.tab-badge.four {
   background: #fff !important;
   border: 2px solid #ddd;
   color: #f1685e;
@@ -88,3 +88,20 @@ div.item.active:after {
   border: 10px solid red;
   border-bottom-color: #ddd;
 }*/
+
+span.tab-badge {
+  border-radius: 100px;
+  background: white;
+  text-align: center;
+  position: absolute;
+  left: 54%;
+  top: 73%;
+  display: inline;
+  margin: 0;
+  padding: 5px;
+  z-index: 5;
+  width: 30px;
+  height: 30px;
+  line-height: .7em;
+  font-size: 22px;
+}
