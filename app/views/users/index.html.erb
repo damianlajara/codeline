@@ -66,9 +66,9 @@
   <div class="well list-container">
     <ul class="list">
       <% if @users.empty? %>
-      <h3 class="text-center">
-          You have no <%= params[:people] %> at the moment.
-      </h3>
+        <h3 class="text-center">
+            You have no <%= params[:people] %> at the moment.
+        </h3>
       <% else %>
         <%= render @users %>
       <% end %>

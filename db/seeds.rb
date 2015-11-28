@@ -42,7 +42,7 @@ p "Test users created"
 Friendship.create([
   {
     user_id: 1,
-    friend_id: 1
+    friend_id: 2
   },
   {
     user_id: 2,
