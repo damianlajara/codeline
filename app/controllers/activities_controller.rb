@@ -8,7 +8,8 @@ class ActivitiesController < ApplicationController
       else
         PublicActivity::Activity.where(owner_id: @users).order("created_at DESC")
       end
-    @user = current_user.nil? ? {} : current_user
-    render component: 'Timeline', props: { activities: @activities, currentUser: @user, content: params[:content] }
+      @user = current_user.nil? ? {} : current_user
+      @contentParams =  params[:content]
+      
   end
 end
