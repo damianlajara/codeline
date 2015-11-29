@@ -1,4 +1,4 @@
-var Friends = React.createClass({
+var Friends = React.createClass({displayName: "Friends",
   propTypes: {
     user: React.PropTypes.object,
     gravatarTag: React.PropTypes.func
@@ -27,26 +27,26 @@ var Friends = React.createClass({
     //Maybe limit to 16?
     this.state.activeFriends.map(function(user, i) {
       return (
-        <a href="users/{user.username}">
-          {this.props.gravatarTag(user.email, 40)}
-        </a>
+        React.createElement("a", {href: "users/{user.username}"}, 
+          this.props.gravatarTag(user.email, 40)
+        )
       );
     }, this);
   },
   render: function() {
     return (
-      <div className="col-md-3">
-        <div className="panel panel-info">
-          <div className="panel-heading">
-            <h3 className="panel-title">
-            Friends ({this.state.activeFriends.size})
-            </h3>
-          </div>
-          <div className="panel-body">
-            {this.friends()}
-          </div>
-        </div>
-      </div>
+      React.createElement("div", {className: "col-md-3"}, 
+        React.createElement("div", {className: "panel panel-info"}, 
+          React.createElement("div", {className: "panel-heading"}, 
+            React.createElement("h3", {className: "panel-title"}, 
+            "Friends (", this.state.activeFriends.size, ")"
+            )
+          ), 
+          React.createElement("div", {className: "panel-body"}, 
+            this.friends()
+          )
+        )
+      )
     );
   }
 });

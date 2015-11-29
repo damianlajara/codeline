@@ -1,7 +1,9 @@
 var Post = React.createClass({
   propTypes: {
     post: React.PropTypes.object,
-    currentUser: React.PropTypes.object
+    currentUser: React.PropTypes.object,
+    gravatarTag: React.PropTypes.func,
+    timeAgoInWords: React.PropTypes.func
   },
   getLinks: function() {
     if(this.props.currentUser && this.props.currentUser === this.props.post.user) {
@@ -20,8 +22,8 @@ var Post = React.createClass({
       <div className="panel panel-info">
         <div className="panel-heading">
           <p className="panel-title">
-            {gravatarTag(this.props.post.user.email, 20)}
-            {this.props.post.user.username} posted this {timeAgoInWords(this.props.post.created_at)} ago
+            {this.props.gravatarTag(this.props.post.user.email, 20)}
+            {this.props.post.user.username} posted this {this.props.timeAgoInWords(this.props.post.created_at)} ago
             {this.getLinks()}
           </p>
         </div>

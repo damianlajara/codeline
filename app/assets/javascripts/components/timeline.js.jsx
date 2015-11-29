@@ -4,6 +4,12 @@ var Timeline = React.createClass({
     currentUser: React.PropTypes.object,
     content: React.PropTypes.string
   },
+  gravatarTag: function(email, size) {
+    var avatarSize = size || 60
+    var formattedEmail = email.trim().toLowerCase();
+    var hash = "http://www.gravatar.com/avatar/" + CryptoJS.MD5(formattedEmail) + "?s=" + size;
+    return ('<img src="' + hash + '"/>');
+  },
   getInitialState: function() {
     return { activities: this.props.activities, content: this.props.content };
   },
@@ -38,7 +44,7 @@ var Timeline = React.createClass({
         </div>
 
         <div className="container">
-          <Activities activities={this.props.activities} currentUser={this.props.currentUser}/>
+          <Activities activities={this.props.activities} currentUser={this.props.currentUser} gravatarTag={this.gravatarTag}/>
         </div>
       </div>
 

@@ -1,7 +1,8 @@
 var Activity = React.createClass({
   propTypes: {
     activity: React.PropTypes.object,
-    index: React.PropTypes.number
+    index: React.PropTypes.number,
+    gravatarTag: React.PropTypes.func
   },
   getText: function() {
     if(this.props.activity.trackable_type === "Post") {
@@ -25,7 +26,7 @@ var Activity = React.createClass({
     return (
       <li className="{inverted}">
         <div className="timeline-badge">
-          {gravatarTag(this.props.activity.owner.email)}
+          {this.props.gravatarTag(this.props.activity.owner.email)}
         </div>
         <div className="timeline-panel">
           <div className="timeline-heading">

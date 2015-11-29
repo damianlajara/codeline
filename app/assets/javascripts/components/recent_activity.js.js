@@ -1,4 +1,4 @@
-var RecentActivity = React.createClass({
+var RecentActivity = React.createClass({displayName: "RecentActivity",
   propTypes: {
     type: React.PropTypes.string,
     activity: React.PropTypes.object,
@@ -58,33 +58,33 @@ var RecentActivity = React.createClass({
   render: function() {
     if(this.props.type === "post") {
       return (
-        <p>
-          <a href="/users/{this.props.activity.owner.username}">
-            {this.props.activity.owner.username}
-          </a> posted something {this.props.timeAgoInWords(activity.created_at)} ago
+        React.createElement("p", null, 
+          React.createElement("a", {href: "/users/{this.props.activity.owner.username}"}, 
+            this.props.activity.owner.username
+          ), " posted something ", this.props.timeAgoInWords(activity.created_at), " ago", 
 
-          <a href="/posts/{this.state.post.id}/like" onClick={this.upvoteClickHandler}>
-            <i className="fa thumbs-o-up"></i>
-            <span className="badge">{this.state.upvotes}</span>
-          </a>
+          React.createElement("a", {href: "/posts/{this.state.post.id}/like", onClick: this.upvoteClickHandler}, 
+            React.createElement("i", {className: "fa thumbs-o-up"}), 
+            React.createElement("span", {className: "badge"}, this.state.upvotes)
+          ), 
 
-          <a href="/posts/{this.state.post.id}/unlike" onClick={this.downvoteClickHandler}>
-            <i className="fa thumbs-o-down"></i>
-            <span className="badge">{this.state.downvotes}</span>
-          </a>
-        </p>
+          React.createElement("a", {href: "/posts/{this.state.post.id}/unlike", onClick: this.downvoteClickHandler}, 
+            React.createElement("i", {className: "fa thumbs-o-down"}), 
+            React.createElement("span", {className: "badge"}, this.state.downvotes)
+          )
+        )
       );
     } else {
       return (
-        <p>
-          <a href="/users/{this.props.activity.owner.username}">
-            {this.props.activity.owner.username}
-          </a>
-            is now friends with
-          <a href="/users/{this.props.activity.recipient.username}">
-            {this.props.activity.recipient.username}
-          </a> !
-        </p>
+        React.createElement("p", null, 
+          React.createElement("a", {href: "/users/{this.props.activity.owner.username}"}, 
+            this.props.activity.owner.username
+          ), 
+            "is now friends with", 
+          React.createElement("a", {href: "/users/{this.props.activity.recipient.username}"}, 
+            this.props.activity.recipient.username
+          ), " !"
+        )
       );
     }
   }

@@ -1,4 +1,4 @@
-var Profile = React.createClass({
+var Profile = React.createClass({displayName: "Profile",
   propTypes: {
     user: React.PropTypes.object,
     posts: React.PropTypes.array,
@@ -51,16 +51,16 @@ var Profile = React.createClass({
   },
   render: function() {
     return (
-      <div>
-        <ProfileInfo user={this.props.user} gravatarTag={this.gravatarTag} />
-        <div className="container">
-          <div className="row">
-            <Friends user={this.props.user} gravatarTag={this.gravatarTag} />
-            <PostContainer posts={this.props.posts} user={this.props.user} currentUser={this.props.currentUser} gravatarTag={this.gravatarTag} timeAgoInWords={this.timeAgoInWords}/>
-            <RecentActivities activities={this.props.activities} timeAgoInWords={this.timeAgoInWords}/>
-          </div>
-        </div>
-      </div>
+      React.createElement("div", null, 
+        React.createElement(ProfileInfo, {user: this.props.user, gravatarTag: this.gravatarTag}), 
+        React.createElement("div", {className: "container"}, 
+          React.createElement("div", {className: "row"}, 
+            React.createElement(Friends, {user: this.props.user, gravatarTag: this.gravatarTag}), 
+            React.createElement(PostContainer, {posts: this.props.posts, user: this.props.user, currentUser: this.props.currentUser, gravatarTag: this.gravatarTag, timeAgoInWords: this.timeAgoInWords}), 
+            React.createElement(RecentActivities, {activities: this.props.activities, timeAgoInWords: this.timeAgoInWords})
+          )
+        )
+      )
     );
   }
 });
