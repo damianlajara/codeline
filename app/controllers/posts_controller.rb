@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:edit, :update, :destroy, :upvote, :downvote]
+  before_action :set_post, only: [:edit, :update, :destroy, :upvote, :downvote, :get_activity_from_post]
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
@@ -35,19 +35,25 @@ class PostsController < ApplicationController
       format.html { redirect_to user_path(@post.user.username), notice: "Post Destroyed" }
     end
   end
-
+  # A route to update the record
   def upvote
     @post.upvote_from current_user
-    redirect_to :back
+    render json: @post.get_upvotes.size
+    # redirect_to :back
   end
 
   def downvote
     @post.downvote_from current_user
-    redirect_to :back
+    render json: @post.get_downvotes.size
+    # redirect_to :back
+  end
+
+  def get_activity_from_post
+    # Passing in the activity id as the post here
+    render json: @post
   end
 
   private
-
 
   def set_post
     @post = Post.find(params[:id])

@@ -4,10 +4,10 @@ var Activities = React.createClass({
     currentUser: React.PropTypes.object
   },
   allActivities : function() {
-    this.props.activities.map(function(activity, index) {
+    this.props.activities.map(function(activity, i) {
       if(activity.trackable_type === "Friendship" && activity.owner === this.props.currentUser) {
         return (
-          <Activity activity={activity} key={index} />
+          <Activity activity={activity} key={activity.trackable_id} index={i} />
         )
       }
     },this);

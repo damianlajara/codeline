@@ -10,6 +10,6 @@ class ActivitiesController < ApplicationController
       end
       @user = current_user.nil? ? {} : current_user
       @contentParams =  params[:content]
-      
+      #render component: 'Timeline', props: { activities: @activities, currentUser: @user, content: params[:content] }
   end
 end

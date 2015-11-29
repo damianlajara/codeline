@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :active_friends]
   before_action :get_counts, only: [:index]
 
   def index
@@ -21,6 +21,10 @@ class UsersController < ApplicationController
     @post = Post.new
     @posts = @user.posts.order('created_at DESC')
     @activities = PublicActivity::Activity.where(owner_id: @user.id).order('created_at DESC')
+  end
+
+  def active_friends
+    render json: @user.active_friends
   end
 
   private

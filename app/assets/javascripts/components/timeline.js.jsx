@@ -4,7 +4,12 @@ var Timeline = React.createClass({
     currentUser: React.PropTypes.object,
     content: React.PropTypes.string
   },
-
+  getInitialState: function() {
+    return { activities: this.props.activities, content: this.props.content };
+  },
+  getDefaultProps: function() {
+    return { activities: [], content: "" };
+  },
   render: function() {
     var activeContent = "";
     var activePost = "";

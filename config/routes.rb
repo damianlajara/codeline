@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
-  resources :users, only: [:show, :index]
+  resources :users, only: [:show, :index, :active_friends] do
+    member do
+      get "active_friends" => "users#active_friends"
+    end
+  end
 
   resources :friendships, only: [:create, :destroy, :accept] do
     member do
@@ -13,10 +17,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts, only: [:create, :edit, :update, :destroy, :like, :unlike] do
+  resources :posts, only: [:create, :edit, :update, :destroy, :like, :unlike, :activity] do
     member do
-      put "like" => "posts#upvote"
-      put "unlike" => "posts#downvote"
+      put "like" => "posts#upvote" # Update record
+      put "unlike" => "posts#upvote" # Update record
+      get "activity" => "posts#get_activity_from_post", as: "activity"
     end
   end
 
