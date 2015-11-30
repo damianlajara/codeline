@@ -57,4 +57,9 @@ class User < ActiveRecord::Base
   def friendship_relation(friend)
     friendship = Friendship.where(user_id: [self.id, friend.id], friend_id: [self.id, friend.id]).first
   end
+
+  # For gravatar
+  def md5_hashed_email
+    Digest::MD5.hexdigest(self.username.strip.downcase)
+  end
 end

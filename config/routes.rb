@@ -5,9 +5,10 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
-  resources :users, only: [:show, :index, :active_friends] do
+  resources :users, only: [:show, :index, :active_friends] do #put get_gravatar_email_hash in the resources if it's going to be used
     member do
       get "active_friends" => "users#active_friends"
+      # get "gravatar" => "users#get_gravatar_email_hash", as: "gravatar"
     end
   end
 

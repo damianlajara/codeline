@@ -1,4 +1,4 @@
-Activities = React.createClass({
+Activities = React.createClass({displayName: "Activities",
   propTypes: {
     activities: React.PropTypes.array,
     currentUser: React.PropTypes.object
@@ -7,16 +7,16 @@ Activities = React.createClass({
     this.props.activities.map(function(activity, i) {
       if(activity.trackable_type === "Friendship" && activity.owner === this.props.currentUser) {
         return (
-          <Activity activity={activity} key={activity.trackable_id} index={i} />
+          React.createElement(Activity, {activity: activity, key: activity.trackable_id, index: i})
         )
       }
     },this);
   },
   render: function() {
     return (
-      <ul className="timeline">
-        {this.allActivities()}
-      </ul>
+      React.createElement("ul", {className: "timeline"}, 
+        this.allActivities()
+      )
     );
   }
 });

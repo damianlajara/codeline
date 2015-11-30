@@ -1,10 +1,10 @@
-this.gravatarTag = function(email, size) {
-  var avatarSize = size || 60
-  var formattedEmail = email.trim().toLowerCase();
-  var hash = "http://www.gravatar.com/avatar/" + CryptoJS.MD5(formattedEmail) + "?s=" + size;
-  return ('<img src="' + hash + '"/>');
-}
-
+// this.gravatarTag = function(email, size) {
+//   var avatarSize = size || 60
+//   var formattedEmail = email.trim().toLowerCase();
+//   var hash = "http://www.gravatar.com/avatar/" + CryptoJS.MD5(formattedEmail) + "?s=" + size;
+//   return ('<img src="' + hash + '"/>');
+// }
+//
 this.timeAgoInWords = function(from_time) {
   var distance_in_minutes, distance_in_seconds, distance_in_years, minute_offset_for_leap_year, remainder;
   var to_time = Date.now();

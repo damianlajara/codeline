@@ -1,4 +1,4 @@
-PostContainer = React.createClass({
+PostContainer = React.createClass({displayName: "PostContainer",
   propTypes: {
     posts: React.PropTypes.array,
     user: React.PropTypes.object,
@@ -14,7 +14,7 @@ PostContainer = React.createClass({
   renderPosts: function() {
     return this.props.posts.map(function(post, i) {
       return (
-        <Post post={post} key={post.id} currentUser={this.props.currentUser} gravatarTag={this.props.gravatarTag} />
+        React.createElement(Post, {post: post, key: post.id, currentUser: this.props.currentUser, gravatarTag: this.props.gravatarTag})
       );
     },this);
   },
@@ -22,16 +22,16 @@ PostContainer = React.createClass({
     if(this.props.currentUser && this.props.currentUser.id === this.props.user.id) {
       //Only show the form if it's the user logged in and it's his account
       return (
-        <div className="col-md-6">
-          <PostForm />
-          {this.renderPosts()}
-        </div>
+        React.createElement("div", {className: "col-md-6"}, 
+          React.createElement(PostForm, null), 
+          this.renderPosts()
+        )
       );
     } else {
       return (
-        <div className="col-md-6">
-          {this.renderPosts()}
-        </div>
+        React.createElement("div", {className: "col-md-6"}, 
+          this.renderPosts()
+        )
       );
     }
   }

@@ -1,4 +1,4 @@
-var PostForm = React.createClass({
+PostForm = React.createClass({
   render: function() {
     return (
       <form accept-charset="UTF-8" action="/posts/create" method="post">

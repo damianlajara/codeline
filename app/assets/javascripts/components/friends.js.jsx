@@ -1,19 +1,22 @@
-var Friends = React.createClass({
+Friends = React.createClass({
   propTypes: {
-    user: React.PropTypes.object
+    user: React.PropTypes.object,
+    gravatarTag: React.PropTypes.func
   },
   getInitialState: function() {
     return { activeFriends: [] };
   },
-  componentWillMount: function() {
+  componentDidMount: function() {
     console.log("Getting friends from server");
     this.getActiveFriendsFromServer();
   },
   getActiveFriendsFromServer: function() {
-    var self = this;
+    console.log("username: ", this.props.user.username)
     $.ajax({
-      url: "/users/" + self.props.user.username + "/active_friends",
+      context: this,
+      url: "/users/" + this.props.user.username + "/active_friends",
       type: "GET",
+      dataType: "json",
       success: function(friends) {
         console.log("friends: ", friends);
         this.setState({activeFriends: friends});
@@ -25,10 +28,11 @@ var Friends = React.createClass({
   },
   friends: function() {
     //Maybe limit to 16?
-    this.state.activeFriends.map(function(user, i) {
+    return this.state.activeFriends.map(function(user, i) {
+      console.log("gravatar hash: ", user.gravatar_hash);
       return (
-        <a href="users/{user.username}">
-          {gravatarTag(user.email, 40)}
+        <a href="users/{user.username}" key={i}>
+          {this.props.gravatarTag(user.gravatar_hash, 40)}
         </a>
       );
     }, this);
@@ -39,7 +43,7 @@ var Friends = React.createClass({
         <div className="panel panel-info">
           <div className="panel-heading">
             <h3 className="panel-title">
-            Friends ({this.state.activeFriends.size})
+            Friends ({this.state.activeFriends.size || " None at the moment "})
             </h3>
           </div>
           <div className="panel-body">

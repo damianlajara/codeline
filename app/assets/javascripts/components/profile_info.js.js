@@ -1,6 +1,7 @@
-var ProfileInfo = React.createClass({displayName: "ProfileInfo",
+ProfileInfo = React.createClass({displayName: "ProfileInfo",
   propTypes: {
-    user: React.PropTypes.object
+    user: React.PropTypes.object,
+    gravatarTag: React.PropTypes.func
   },
   render: function() {
     return (
@@ -8,7 +9,7 @@ var ProfileInfo = React.createClass({displayName: "ProfileInfo",
         React.createElement("div", {className: "container"}, 
           React.createElement("div", {className: "row"}, 
             React.createElement("div", {className: "col-md-4"}, 
-            gravatarTag(this.props.user.email, 200)
+            this.props.gravatarTag(this.props.user.gravatar_hash, 200)
             ), 
             React.createElement("div", {className: "col-md-4"}, 
               React.createElement("h3", null, this.props.user.username), 

@@ -1,4 +1,4 @@
-var Timeline = React.createClass({
+Timeline = React.createClass({
   propTypes: {
     activities: React.PropTypes.array,
     currentUser: React.PropTypes.object,

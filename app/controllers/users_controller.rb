@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :active_friends]
+  before_action :set_user, only: [:show, :active_friends, :get_gravatar_email_hash]
   before_action :get_counts, only: [:index]
 
   def index
@@ -21,13 +21,20 @@ class UsersController < ApplicationController
     @post = Post.new
     @posts = @user.posts.order('created_at DESC')
     @activities = PublicActivity::Activity.where(owner_id: @user.id).order('created_at DESC')
-    byebug
-    
   end
 
+  # AJAX Calls
   def active_friends
     render json: @user.active_friends
   end
+
+  # def get_gravatar_username_hash
+  #   render json: @user.md5_hashed_email
+  # end
+
+  # def get_time_ago_in_words
+  #   time_ago_in_words()
+  # end
 
   private
 
