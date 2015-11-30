@@ -20,3 +20,4 @@ var Profile = React.createClass({
     );
   }
 });
+//USER AJAX to go to server and update the gravat via state

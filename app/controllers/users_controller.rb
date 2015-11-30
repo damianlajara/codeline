@@ -21,6 +21,8 @@ class UsersController < ApplicationController
     @post = Post.new
     @posts = @user.posts.order('created_at DESC')
     @activities = PublicActivity::Activity.where(owner_id: @user.id).order('created_at DESC')
+    byebug
+    
   end
 
   def active_friends

@@ -1,4 +1,4 @@
-var RecentActivities = React.createClass({
+var RecentActivities = React.createClass({displayName: "RecentActivities",
   propTypes: {
     activities: React.PropTypes.array
   },
@@ -10,7 +10,7 @@ var RecentActivities = React.createClass({
   postActivity: function(activity) {
     // Make sure to check that the activity still exists. If we delete a post, friendship or w.e it is that we are tracking, the activity will still be tracking it since we are not explicitly deleting the activity upon the dependent destroy
     if (activity.trackable) {
-      return (<RecentActivity type="post" activity={activity} />);
+      return (React.createElement(RecentActivity, {type: "post", activity: activity}));
     } else {
       return null;
     }
@@ -18,7 +18,7 @@ var RecentActivities = React.createClass({
   friendshipActivity: function(activity) {
     // Make sure to check that the activity still exists. If we delete a post, friendship or w.e it is that we are tracking, the activity will still be tracking it since we are not explicitly deleting the activity upon the dependent destroy
     if (activity.trackable) {
-      return (<RecentActivity type="friendship" activity={activity} />);
+      return (React.createElement(RecentActivity, {type: "friendship", activity: activity}));
     } else {
       return null;
     }
@@ -36,16 +36,16 @@ var RecentActivities = React.createClass({
   },
   render: function() {
     return (
-      <div className="col-md-3">
-        <div className="panel panel-info">
-          <div className="panel-heading">
-            <h3 className="panel-title">Recent Activity</h3>
-          </div>
-          <div className="panel-body">
-            {this.renderActivities(this.props.activities)}
-          </div>
-        </div>
-      </div>
+      React.createElement("div", {className: "col-md-3"}, 
+        React.createElement("div", {className: "panel panel-info"}, 
+          React.createElement("div", {className: "panel-heading"}, 
+            React.createElement("h3", {className: "panel-title"}, "Recent Activity")
+          ), 
+          React.createElement("div", {className: "panel-body"}, 
+            this.renderActivities(this.props.activities)
+          )
+        )
+      )
     );
   }
 });
