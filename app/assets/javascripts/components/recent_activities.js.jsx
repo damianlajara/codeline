@@ -49,3 +49,5 @@ var RecentActivities = React.createClass({
     );
   }
 });
+
+module.exports = RecentActivities;

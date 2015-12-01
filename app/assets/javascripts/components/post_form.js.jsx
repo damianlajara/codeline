@@ -17,3 +17,4 @@ var PostForm = React.createClass({
     );
   }
 });
+module.exports = PostForm;

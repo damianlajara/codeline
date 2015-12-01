@@ -28,3 +28,4 @@ var ProfileInfo = React.createClass({
     );
   }
 });
+module.exports = ProfileInfo;

@@ -8,7 +8,7 @@ var RecentActivity = React.createClass({
   },
   componentWillMount: function() {
     //get upvotes and downvotes from server
-    console.log("Getting post from server");
+    // console.log("Getting post from server");
     this.getPostFromServer();
   },
   getPostFromServer: function() {
@@ -17,7 +17,7 @@ var RecentActivity = React.createClass({
       type: "GET",
       dataType: "json",
       success: function(post) {
-        console.log("post: ", post);
+        // console.log("post: ", post);
         this.setState({post: post});
       }.bind(this),
       error: function(xhr, status, error) {
@@ -32,7 +32,7 @@ var RecentActivity = React.createClass({
       dataType: "json",
       data: {"_method":"put"},
       success: function(upvotes) {
-        console.log("upvote: ", data);
+        // console.log("upvote: ", data);
         this.setState({upvotes: upvotes});
       }.bind(this),
       error: function(xhr, status, error) {
@@ -47,7 +47,7 @@ var RecentActivity = React.createClass({
       dataType: "json",
       data: {"_method":"put"},
       success: function(downvotes) {
-        console.log("downvote: ", downvotes);
+        // console.log("downvote: ", downvotes);
         this.setState({downvotes: downvotes});
       }.bind(this),
       error: function(xhr, status, error) {
@@ -89,3 +89,5 @@ var RecentActivity = React.createClass({
     }
   }
 });
+
+module.exports = RecentActivity;

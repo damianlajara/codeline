@@ -1,3 +1,6 @@
+// var Post = require('./post');
+// var PostForm = require('./post_form');
+
 var PostContainer = React.createClass({
   propTypes: {
     posts: React.PropTypes.array,
@@ -36,3 +39,5 @@ var PostContainer = React.createClass({
     }
   }
 });
+
+module.exports = PostContainer;

@@ -20,3 +20,4 @@ var Activities = React.createClass({
     );
   }
 });
+module.exports = Activities;

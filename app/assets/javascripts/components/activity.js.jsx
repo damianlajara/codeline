@@ -49,3 +49,4 @@ var Activity = React.createClass({
     );
   }
 });
+module.exports = Activity;

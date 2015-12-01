@@ -1,3 +1,8 @@
+// var ProfileInfo = require('./profile_info');
+// var Friends = require('./friends');
+// var PostContainer = require('./post_container');
+// var RecentActivities = require('./recent_activities');
+
 var Profile = React.createClass({
   propTypes: {
     posts: React.PropTypes.array,
@@ -10,11 +15,10 @@ var Profile = React.createClass({
     var hash = "http://www.gravatar.com/avatar/" + hashedEmail + "?s=" + size;
     return (<img src={hash}/>);
   },
-  // gravatarTag(this.props.user.gravatar_hash, 200)
   render: function() {
     return (
       <div>
-        <ProfileInfo user={this.props.user} gravatarTag={this.gravatarTag}/>
+        <ProfileInfo user={this.props.user} gravatarTag={this.gravatarTag} />
         <div className="container">
           <div className="row">
             <Friends user={this.props.user} gravatarTag={this.gravatarTag} />
@@ -26,4 +30,5 @@ var Profile = React.createClass({
     );
   }
 });
+
 module.exports = Profile;
