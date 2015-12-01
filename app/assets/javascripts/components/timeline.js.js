@@ -1,4 +1,4 @@
-Timeline = React.createClass({displayName: "Timeline",
+var Timeline = React.createClass({displayName: "Timeline",
   propTypes: {
     activities: React.PropTypes.array,
     currentUser: React.PropTypes.object,
@@ -45,3 +45,5 @@ Timeline = React.createClass({displayName: "Timeline",
     );
   }
 });
+
+module.exports = Timeline;

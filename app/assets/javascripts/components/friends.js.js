@@ -1,4 +1,4 @@
-Friends = React.createClass({displayName: "Friends",
+var Friends = React.createClass({displayName: "Friends",
   propTypes: {
     user: React.PropTypes.object,
     gravatarTag: React.PropTypes.func

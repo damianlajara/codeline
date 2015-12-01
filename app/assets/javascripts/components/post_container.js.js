@@ -1,4 +1,4 @@
-PostContainer = React.createClass({displayName: "PostContainer",
+var PostContainer = React.createClass({displayName: "PostContainer",
   propTypes: {
     posts: React.PropTypes.array,
     user: React.PropTypes.object,

@@ -1,4 +1,4 @@
-Activities = React.createClass({
+var Activities = React.createClass({
   propTypes: {
     activities: React.PropTypes.array,
     currentUser: React.PropTypes.object

@@ -1,4 +1,4 @@
-Post = React.createClass({
+var Post = React.createClass({
   propTypes: {
     post: React.PropTypes.object,
     currentUser: React.PropTypes.object,

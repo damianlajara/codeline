@@ -56,3 +56,4 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'private_pub'
 gem 'thin'
 gem 'react-rails', '~> 1.5.0'
+gem "browserify-rails"

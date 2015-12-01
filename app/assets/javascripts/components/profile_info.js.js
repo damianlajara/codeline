@@ -1,4 +1,4 @@
-ProfileInfo = React.createClass({displayName: "ProfileInfo",
+var ProfileInfo = React.createClass({displayName: "ProfileInfo",
   propTypes: {
     user: React.PropTypes.object,
     gravatarTag: React.PropTypes.func

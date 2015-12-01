@@ -1,4 +1,4 @@
-PostForm = React.createClass({displayName: "PostForm",
+var PostForm = React.createClass({displayName: "PostForm",
   render: function() {
     return (
       React.createElement("form", {"accept-charset": "UTF-8", action: "/posts/create", method: "post"}, 

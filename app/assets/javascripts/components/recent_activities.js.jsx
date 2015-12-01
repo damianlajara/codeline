@@ -1,4 +1,4 @@
-RecentActivities = React.createClass({
+var RecentActivities = React.createClass({
   propTypes: {
     activities: React.PropTypes.array
   },

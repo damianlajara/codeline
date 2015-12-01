@@ -1,4 +1,4 @@
-Activity = React.createClass({
+var Activity = React.createClass({
   propTypes: {
     activity: React.PropTypes.object,
     index: React.PropTypes.number
