@@ -1,7 +1,7 @@
-// var ProfileInfo = require('./profile_info');
-// var Friends = require('./friends');
-// var PostContainer = require('./post_container');
-// var RecentActivities = require('./recent_activities');
+var ProfileInfo = require('./profile_info');
+var Friends = require('./friends');
+var PostContainer = require('./post_container');
+var RecentActivities = require('./recent_activities');
 
 var Profile = React.createClass({
   propTypes: {

@@ -1,7 +1,7 @@
 var PostForm = React.createClass({
   render: function() {
     return (
-      <form accept-charset="UTF-8" action="/posts/create" method="post">
+      <form acceptCharset="UTF-8" action="/posts/create" method="post">
         <div className="panel panel-info">
           <div className="panel-heading">
             <h3 className="panel-title">Post</h3>
@@ -17,4 +17,5 @@ var PostForm = React.createClass({
     );
   }
 });
+
 module.exports = PostForm;

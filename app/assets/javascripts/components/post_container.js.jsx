@@ -1,5 +1,5 @@
-// var Post = require('./post');
-// var PostForm = require('./post_form');
+var PostForm = require('./post_form');
+var Post = require('./post');
 
 var PostContainer = React.createClass({
   propTypes: {
