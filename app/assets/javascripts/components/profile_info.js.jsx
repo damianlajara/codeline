@@ -1,7 +1,7 @@
+var Gravatar = require("react-gravatar");
 var ProfileInfo = React.createClass({
   propTypes: {
-    user: React.PropTypes.object,
-    gravatarTag: React.PropTypes.func
+    user: React.PropTypes.object
   },
   render: function() {
     return (
@@ -9,7 +9,7 @@ var ProfileInfo = React.createClass({
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-            {this.props.gravatarTag(this.props.user.gravatar_hash, 200)}
+            <Gravatar md5={this.props.user.gravatar_hash} size={200} />
             </div>
             <div className="col-md-4">
               <h3>{this.props.user.username}</h3>

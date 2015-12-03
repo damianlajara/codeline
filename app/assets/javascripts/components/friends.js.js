@@ -1,5 +1,5 @@
 var Gravatar = require("react-gravatar");
-var Friends = React.createClass({
+var Friends = React.createClass({displayName: "Friends",
   propTypes: {
     user: React.PropTypes.object
   },
@@ -29,26 +29,26 @@ var Friends = React.createClass({
     return this.state.activeFriends.map(function(user, i) {
       // console.log("gravatar hash: ", user.gravatar_hash);
       return (
-        <a href="users/{user.username}" key={i}>
-          <Gravatar md5={user.gravatar_hash} size={40} />
-        </a>
+        React.createElement("a", {href: "users/{user.username}", key: i}, 
+          React.createElement(Gravatar, {md5: user.gravatar_hash, size: 40})
+        )
       );
     }, this);
   },
   render: function() {
     return (
-      <div className="col-md-3">
-        <div className="panel panel-info">
-          <div className="panel-heading">
-            <h3 className="panel-title">
-            Friends ({this.state.activeFriends.size || " None at the moment "})
-            </h3>
-          </div>
-          <div className="panel-body">
-            {this.friends()}
-          </div>
-        </div>
-      </div>
+      React.createElement("div", {className: "col-md-3"}, 
+        React.createElement("div", {className: "panel panel-info"}, 
+          React.createElement("div", {className: "panel-heading"}, 
+            React.createElement("h3", {className: "panel-title"}, 
+            "Friends (", this.state.activeFriends.size || " None at the moment ", ")"
+            )
+          ), 
+          React.createElement("div", {className: "panel-body"}, 
+            this.friends()
+          )
+        )
+      )
     );
   }
 });

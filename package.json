@@ -1,8 +1,9 @@
 {
   "name": "codeline",
-  "dependencies" : {
+  "dependencies": {
     "browserify": "~> 10.2.4",
     "browserify-incremental": "^3.0.1",
+    "react-gravatar": "^2.2.2",
     "reactify": "^1.1.0"
   },
   "license": "MIT",

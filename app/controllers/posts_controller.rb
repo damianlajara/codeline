@@ -5,9 +5,14 @@ class PostsController < ApplicationController
     if @post.save
       # After saving the post, start tracking it's activity
       @post.create_activity key: "post.created", owner: @post.user
-
-      respond_to do |format|
-        format.html { redirect_to user_path(@post.user.username), notice: "Post Created" }
+      if request.xhr?
+        respond_to do |format|
+          format.json { render json: @post }
+        end
+      else
+        respond_to do |format|
+          format.html { redirect_to user_path(@post.user.username), notice: "Post Created" }
+        end
       end
     else
       redirect_to user_path(@post.user.username), error: "Something went wrong. Try again"

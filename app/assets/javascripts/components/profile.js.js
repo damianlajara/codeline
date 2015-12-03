@@ -3,7 +3,7 @@ var Friends = require('./friends');
 var PostContainer = require('./post_container');
 var RecentActivities = require('./recent_activities');
 
-var Profile = React.createClass({
+var Profile = React.createClass({displayName: "Profile",
   propTypes: {
     posts: React.PropTypes.array,
     user: React.PropTypes.object,
@@ -44,17 +44,17 @@ var Profile = React.createClass({
   },
   render: function() {
     return (
-      <div>
-        <ProfileInfo user={this.props.user} />
-        <div className="container">
-          <div className="row">
-            <Friends user={this.props.user} />
-            <PostContainer posts={this.props.posts} userOfPost={this.props.user} currentUser={this.props.currentUser}
-            timeAgoInWords={this.timeAgoInWords} />
-            <RecentActivities activities={this.props.activities} timeAgoInWords={this.timeAgoInWords}/>
-          </div>
-        </div>
-      </div>
+      React.createElement("div", null, 
+        React.createElement(ProfileInfo, {user: this.props.user}), 
+        React.createElement("div", {className: "container"}, 
+          React.createElement("div", {className: "row"}, 
+            React.createElement(Friends, {user: this.props.user}), 
+            React.createElement(PostContainer, {posts: this.props.posts, userOfPost: this.props.user, currentUser: this.props.currentUser, 
+            timeAgoInWords: this.timeAgoInWords}), 
+            React.createElement(RecentActivities, {activities: this.props.activities, timeAgoInWords: this.timeAgoInWords})
+          )
+        )
+      )
     );
   }
 });
