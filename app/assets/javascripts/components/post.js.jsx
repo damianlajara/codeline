@@ -19,7 +19,6 @@ var Post = React.createClass({
     }
   },
   render: function() {
-    console.log(this.props.timeAgoInWords(this.props.post.created_at))
     return (
       <div className="post panel panel-info">
         <div className="panel-heading">

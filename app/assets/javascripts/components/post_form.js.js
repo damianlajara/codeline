@@ -1,17 +1,34 @@
 var PostForm = React.createClass({displayName: "PostForm",
+  propTypes: {
+    updatePosts: React.PropTypes.func //parent's handler to updates its state, needs to pass it to the child in order to recieve a reply to set the state
+  },
   submitForm: function(event) {
     event.preventDefault();
     console.log("clicked on submit");
+    console.log("parent context: ", this.parent);
+
     var content = this.refs.postContentInput.value;
     console.log("input value: ", content);
-    $.post( "/posts", { post: {content: content } }, function( newCreatedPost ) {
-      console.log("newCreatedPost: ", newCreatedPost);
-    }, "json");
+
+    $.ajax({
+      url: "/posts",
+      type: "POST",
+      dataType: "json",
+      data: { post : { content : content } },
+      success: function(newCreatedPost) {
+        console.log("Got new post: ", newCreatedPost);
+        this.props.updatePosts(newCreatedPost); //update parents state
+      }.bind(this),
+      error: function(xhr, status, error) {
+        console.log(error);
+      }
+    });
   },
   componentDidMount: function() {
     // console.log("input: ", ReactDOM.findDOMNode(this.refs.postContentInput).value);
   },
   render: function() {
+    console.log("rendering post_form!")
     return (
       React.createElement("form", {acceptCharset: "UTF-8", action: "", method: ""}, 
         React.createElement("div", {className: "form panel panel-info"}, 
