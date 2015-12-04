@@ -1,0 +1,37 @@
+/* react post.jsx */
+.post.panel .panel-body {
+  height: auto;
+}
+
+.gravatar {
+  margin-right: 8px;
+}
+
+/* react profile_info.jsx */
+.jumbotron.profileinfo-container {
+  margin-bottom: 0;
+}
+
+.profile-tabs {
+  margin-bottom: 30px;
+}
+
+button > i.fa {
+  font-size: 1.5em;
+}
+
+/* react post form */
+.form.panel {
+  .panel-heading {
+    i {
+      font-size: 1.5em;
+      float: right;
+    }
+    h3 {
+      display: inline-block;
+    }
+  }
+  #collapseForm .panel-body {
+    height: auto;
+  }
+}

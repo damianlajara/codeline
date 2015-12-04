@@ -19,3 +19,8 @@
   padding: 0 !important;
   margin: 0 !important;
 }
+
+/* header gravatar img */
+li.dropdown a img {
+  margin-right: 8px;
+}

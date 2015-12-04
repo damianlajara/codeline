@@ -21,10 +21,10 @@ var Post = React.createClass({
   render: function() {
     console.log(this.props.timeAgoInWords(this.props.post.created_at))
     return (
-      <div className="panel panel-info">
+      <div className="post panel panel-info">
         <div className="panel-heading">
           <p className="panel-title">
-          <Gravatar md5={this.props.userOfPost.gravatar_hash} size={20} />
+            <Gravatar className="gravatar" md5={this.props.userOfPost.gravatar_hash} size={20} />
             {this.props.userOfPost.username} posted this {this.props.timeAgoInWords(this.props.post.created_at)}
             {this.getLinks()}
           </p>
