@@ -42,16 +42,80 @@ var Profile = React.createClass({
     var res = b_search(minutes, 0, Math.floor((data.length - 1) / 2), data.length - 1)[1];
     return (res instanceof Function) ? res(minutes) : res;
   },
+  componentDidMount: function() {
+    //Make the primary tab active
+    var buttons = $('.profile-tabs button')
+    buttons.click(function(){
+      buttons.removeClass('active');
+      $(this).addClass('active');
+    });
+  },
+  getInitialState: function() {
+    return { content: this.displayPostContainer() };
+  },
+  tab1Click: function() {
+    this.setState({ content: this.displayFriends() });
+    console.log("rendering first tab");
+  },
+  tab2Click: function() {
+    this.setState({ content: this.displayPostContainer() });
+    console.log("rendering second tab");
+  },
+  tab3Click: function() {
+    this.setState({ content: this.displayRecentActivities() });
+    console.log("rendering third tab");
+  },
+  displayFriends: function() {
+    return (
+      <Friends user={this.props.user} />
+    );
+  },
+  displayPostContainer: function() {
+    return (
+      <PostContainer posts={this.props.posts} userOfPost={this.props.user} currentUser={this.props.currentUser}
+      timeAgoInWords={this.timeAgoInWords} />
+    );
+  },
+  displayRecentActivities: function() {
+    return (
+      <RecentActivities activities={this.props.activities} timeAgoInWords={this.timeAgoInWords}/>
+    );
+  },
+  displayContent: function() {
+    return this.state.content;
+  },
+  displayTabs: function() {
+    return(
+      <div className="profile-tabs btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+        <div className="btn-group" role="group" onClick={this.tab1Click}>
+          <button type="button" className="btn btn-default" href="#tab1" data-toggle="tab">
+          <i className="fa fa-group" aria-hidden="true"></i>
+              <div className="hidden-xs">Friends</div>
+          </button>
+        </div>
+        <div className="btn-group" role="group" onClick={this.tab2Click}>
+          <button type="button" className="active btn btn-default" href="#tab2" data-toggle="tab">
+          <i className="fa fa-thumb-tack" aria-hidden="true"></i>
+              <div className="hidden-xs">Posts</div>
+          </button>
+        </div>
+        <div className="btn-group" role="group" onClick={this.tab3Click}>
+          <button type="button" className="btn btn-default" href="#tab3" data-toggle="tab">
+          <i className="fa fa-clock-o" aria-hidden="true"></i>
+              <div className="hidden-xs">Recent Activity</div>
+          </button>
+        </div>
+      </div>
+    );
+  },
   render: function() {
     return (
       <div>
         <ProfileInfo user={this.props.user} />
+          {this.displayTabs()}
         <div className="container">
           <div className="row">
-            <Friends user={this.props.user} />
-            <PostContainer posts={this.props.posts} userOfPost={this.props.user} currentUser={this.props.currentUser}
-            timeAgoInWords={this.timeAgoInWords} />
-            <RecentActivities activities={this.props.activities} timeAgoInWords={this.timeAgoInWords}/>
+            {this.displayContent()}
           </div>
         </div>
       </div>

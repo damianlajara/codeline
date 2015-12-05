@@ -42,16 +42,80 @@ var Profile = React.createClass({displayName: "Profile",
     var res = b_search(minutes, 0, Math.floor((data.length - 1) / 2), data.length - 1)[1];
     return (res instanceof Function) ? res(minutes) : res;
   },
+  componentDidMount: function() {
+    //Make the primary tab active
+    var buttons = $('.profile-tabs button')
+    buttons.click(function(){
+      buttons.removeClass('active');
+      $(this).addClass('active');
+    });
+  },
+  getInitialState: function() {
+    return { content: this.displayPostContainer() };
+  },
+  tab1Click: function() {
+    this.setState({ content: this.displayFriends() });
+    console.log("rendering first tab");
+  },
+  tab2Click: function() {
+    this.setState({ content: this.displayPostContainer() });
+    console.log("rendering second tab");
+  },
+  tab3Click: function() {
+    this.setState({ content: this.displayRecentActivities() });
+    console.log("rendering third tab");
+  },
+  displayFriends: function() {
+    return (
+      React.createElement(Friends, {user: this.props.user})
+    );
+  },
+  displayPostContainer: function() {
+    return (
+      React.createElement(PostContainer, {posts: this.props.posts, userOfPost: this.props.user, currentUser: this.props.currentUser, 
+      timeAgoInWords: this.timeAgoInWords})
+    );
+  },
+  displayRecentActivities: function() {
+    return (
+      React.createElement(RecentActivities, {activities: this.props.activities, timeAgoInWords: this.timeAgoInWords})
+    );
+  },
+  displayContent: function() {
+    return this.state.content;
+  },
+  displayTabs: function() {
+    return(
+      React.createElement("div", {className: "profile-tabs btn-group btn-group-justified btn-group-lg", role: "group", "aria-label": "..."}, 
+        React.createElement("div", {className: "btn-group", role: "group", onClick: this.tab1Click}, 
+          React.createElement("button", {type: "button", className: "btn btn-default", href: "#tab1", "data-toggle": "tab"}, 
+          React.createElement("i", {className: "fa fa-group", "aria-hidden": "true"}), 
+              React.createElement("div", {className: "hidden-xs"}, "Friends")
+          )
+        ), 
+        React.createElement("div", {className: "btn-group", role: "group", onClick: this.tab2Click}, 
+          React.createElement("button", {type: "button", className: "active btn btn-default", href: "#tab2", "data-toggle": "tab"}, 
+          React.createElement("i", {className: "fa fa-thumb-tack", "aria-hidden": "true"}), 
+              React.createElement("div", {className: "hidden-xs"}, "Posts")
+          )
+        ), 
+        React.createElement("div", {className: "btn-group", role: "group", onClick: this.tab3Click}, 
+          React.createElement("button", {type: "button", className: "btn btn-default", href: "#tab3", "data-toggle": "tab"}, 
+          React.createElement("i", {className: "fa fa-clock-o", "aria-hidden": "true"}), 
+              React.createElement("div", {className: "hidden-xs"}, "Recent Activity")
+          )
+        )
+      )
+    );
+  },
   render: function() {
     return (
       React.createElement("div", null, 
         React.createElement(ProfileInfo, {user: this.props.user}), 
+          this.displayTabs(), 
         React.createElement("div", {className: "container"}, 
           React.createElement("div", {className: "row"}, 
-            React.createElement(Friends, {user: this.props.user}), 
-            React.createElement(PostContainer, {posts: this.props.posts, userOfPost: this.props.user, currentUser: this.props.currentUser, 
-            timeAgoInWords: this.timeAgoInWords}), 
-            React.createElement(RecentActivities, {activities: this.props.activities, timeAgoInWords: this.timeAgoInWords})
+            this.displayContent()
           )
         )
       )

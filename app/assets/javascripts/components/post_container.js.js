@@ -46,9 +46,13 @@ var PostContainer = React.createClass({displayName: "PostContainer",
   render: function() {
     console.log("rendering post_container!")
     return (
-      React.createElement("div", {className: "col-md-6"}, 
-        this.displayForm(), 
-        this.renderPosts()
+      React.createElement("div", null, 
+        React.createElement("div", {className: "col-md-1"}), 
+        React.createElement("div", {id: "tab2", className: "col-md-10"}, 
+          this.displayForm(), 
+          this.renderPosts()
+        ), 
+        React.createElement("div", {className: "col-md-1"})
       )
     );
   }

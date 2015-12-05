@@ -37,16 +37,21 @@ var RecentActivities = React.createClass({displayName: "RecentActivities",
   },
   render: function() {
     return (
-      React.createElement("div", {className: "col-md-3"}, 
-        React.createElement("div", {className: "panel panel-info"}, 
-          React.createElement("div", {className: "panel-heading"}, 
-            React.createElement("h3", {className: "panel-title"}, "Recent Activity")
-          ), 
-          React.createElement("div", {className: "panel-body"}, 
-            this.renderActivities(this.props.activities)
+      React.createElement("div", null, 
+        React.createElement("div", {className: "col-md-1"}), 
+        React.createElement("div", {id: "tab3", className: "col-md-10"}, 
+          React.createElement("div", {className: "panel panel-info"}, 
+            React.createElement("div", {className: "panel-heading"}, 
+              React.createElement("h3", {className: "panel-title"}, "Recent Activity")
+            ), 
+            React.createElement("div", {className: "panel-body"}, 
+              this.renderActivities(this.props.activities)
+            )
           )
-        )
+        ), 
+        React.createElement("div", {className: "col-md-1"})
       )
+
     );
   }
 });
