@@ -15,9 +15,11 @@
 //= require twitter/bootstrap
 //= require private_pub
 //= require chat
+//= require side_bar
+//= require authentication
+//= require users
 //= require turbolinks
 //= require react
 //= require react_ujs
-
 // Pull in our top-level components in the main javascript entry point
 require('./components.js');

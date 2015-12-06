@@ -16,9 +16,9 @@
         <div class="row">
           <div class="col-md-12 reset">
             <% if user_signed_in? %>
-              <%= link_to "#", class: "toggle-sidebar", "data-toggle" => "offcanvas" do %>
+              <button id="off-canvas-button" class="toggle-sidebar" name="button">
                 <%= fa_icon "navicon" %>
-              <% end %>
+              </button>
             <% end %>
             <%= bootstrap_flash class: "text-center" %>
             <%= yield %>
