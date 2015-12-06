@@ -1,8 +1,12 @@
 <div class="jumbotron text-center">
   <h1>Timeline</h1>
+  <h4>Where all coders get together</h4>
   <div class="btn-group" role="group" aria-label="Default">
-    <%= link_to "Everything", activities_path, class: "btn btn-default #{'active' unless params[:content]}" %>
-    <%= link_to "Posts", activities_path(content: "posts"), class: "btn btn-default #{'active' if params[:content] == 'posts'}" %>
+    <p>
+      Filter By:
+    </p>
+    <%= link_to "Posts Only", activities_path(content: "posts"), class: "btn btn-default #{'active' if params[:content] == 'posts'}" %>
+    <%= link_to "All Activity", activities_path, class: "btn btn-default #{'active' unless params[:content]}" %>
   </div>
   <p></p>
 </div>
@@ -12,7 +16,7 @@
     <% @activities.each_with_index do |activity, index| %>
       <!-- If i am the owner of the activity, don't show it since it will be shown based on the other user. Etc: Delete one end of the friendship -->
       <% unless activity.trackable_type == "Friendship" && activity.owner == current_user %>
-        <li class="<%='timeline-inverted' if index % 2 == 0 %>">
+        <li class="<%='timeline-inverted' if index % 2 == 0%>">
           <div class="timeline-badge">
             <%= gravatar_tag activity.owner.email, size: 60 %>
           </div>
