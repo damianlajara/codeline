@@ -22,6 +22,13 @@ button > i.fa {
 
 /* react post form */
 .form.panel {
+  .post-form-content {
+    display: inline;
+    width: 88%;
+  }
+  .post-form-submit {
+    display: inline-block;
+  }
   .panel-heading {
     i {
       font-size: 1.5em;
@@ -37,55 +44,54 @@ button > i.fa {
 }
 
 .profile-tabs button.active {
-  background-color: lightblue;
+  background-color: rgb(217,237,247);
 }
 
 /* react friends.jsx */
 
-a.friend-image img.react-gravatar {
-  border-radius: 50%;
-  border: 1px solid lightblue;
+.friends-panel {
+  .panel-body {
+    //Overide bootstrap
+    overflow-y: auto;
+    height: auto;
+  }
 }
 
-ul.img-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.img-list {
   text-align: center;
-}
-
-ul.img-list li {
-  display: inline-block;
-  height: 150px;
-  margin: 0 1em 1em 0;
-  position: relative;
-  width: 150px;
-}
-
-span.text-content {
-  background: rgba(0,0,0,0.5);
-  color: white;
-  cursor: pointer;
-  display: table;
-  height: 150px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 150px;
-  opacity: 0;
-  -webkit-transition: opacity 500ms;
-  -moz-transition: opacity 500ms;
-  -o-transition: opacity 500ms;
-  transition: opacity 500ms;
-  border-radius: 50%;
-}
-
-span.text-content span {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-}
-
-ul.img-list li:hover span.text-content {
-  opacity: 1;
+  .image-container {
+    margin-bottom: 25px;
+    a.friend-image img.react-gravatar {
+      border-radius: 50%;
+      border: 1px solid lightblue;
+    }
+    @media only screen and (min-width : 1080px) {
+      span.text-content {
+        background: rgba(0,0,0,0.5);
+        color: white;
+        cursor: pointer;
+        display: table;
+        height: 150px;
+        width: 150px;
+        left: 18%;
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        -webkit-transition: opacity 500ms;
+        -moz-transition: opacity 500ms;
+        -o-transition: opacity 500ms;
+        transition: opacity 500ms;
+        border-radius: 50%;
+        span {
+          display: table-cell;
+          position: relative;
+          left: 25%;
+          vertical-align: middle;
+        }
+      }
+      &:hover span.text-content {
+        opacity: 1;
+      }
+    }
+  }
 }

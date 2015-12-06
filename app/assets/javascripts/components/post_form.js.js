@@ -36,12 +36,10 @@ var PostForm = React.createClass({displayName: "PostForm",
             React.createElement("h3", {className: "panel-title"}, "Create a new post"), 
             React.createElement("i", {className: "fa fa-pencil-square-o", "aria-hidden": "true", "data-toggle": "collapse", "data-target": "#collapseForm"})
           ), 
-          React.createElement("div", {id: "collapseForm", className: "collapse"}, 
+          React.createElement("div", {id: "collapseForm", className: "collapse in"}, 
             React.createElement("div", {className: "panel-body"}, 
-            React.createElement("input", {ref: "postContentInput", id: "post_content", name: "post[content]", type: "text", placeholder: "New Post Content Here", className: "form-control", required: true})
-            ), 
-            React.createElement("div", {className: "panel-footer"}, 
-              React.createElement("input", {ref: "submitPostForm", name: "commit", type: "submit", value: "Create Post", className: "btn btn-primary btn-block", onClick: this.submitForm})
+              React.createElement("input", {ref: "postContentInput", id: "post_content", name: "post[content]", type: "text", placeholder: "New Post Content Here", className: "form-control post-form-content", required: true}), 
+              React.createElement("input", {ref: "submitPostForm", name: "commit", type: "submit", value: "Create Post", className: "btn btn-primary post-form-submit", onClick: this.submitForm})
             )
           )
         )

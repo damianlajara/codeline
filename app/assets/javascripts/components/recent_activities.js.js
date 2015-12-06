@@ -42,7 +42,7 @@ var RecentActivities = React.createClass({displayName: "RecentActivities",
         React.createElement("div", {id: "tab3", className: "col-md-10"}, 
           React.createElement("div", {className: "panel panel-info"}, 
             React.createElement("div", {className: "panel-heading"}, 
-              React.createElement("h3", {className: "panel-title"}, "Recent Activity")
+              React.createElement("h3", {className: "panel-title text-center"}, "Recent Activity")
             ), 
             React.createElement("div", {className: "panel-body"}, 
               this.renderActivities(this.props.activities)

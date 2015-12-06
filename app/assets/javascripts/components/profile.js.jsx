@@ -96,7 +96,7 @@ var Profile = React.createClass({
         <div className="btn-group" role="group" onClick={this.tab2Click}>
           <button type="button" className="active btn btn-default" href="#tab2" data-toggle="tab">
           <i className="fa fa-thumb-tack" aria-hidden="true"></i>
-              <div className="hidden-xs">Posts</div>
+              <div className="hidden-xs">My Posts</div>
           </button>
         </div>
         <div className="btn-group" role="group" onClick={this.tab3Click}>

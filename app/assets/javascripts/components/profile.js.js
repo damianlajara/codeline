@@ -96,7 +96,7 @@ var Profile = React.createClass({displayName: "Profile",
         React.createElement("div", {className: "btn-group", role: "group", onClick: this.tab2Click}, 
           React.createElement("button", {type: "button", className: "active btn btn-default", href: "#tab2", "data-toggle": "tab"}, 
           React.createElement("i", {className: "fa fa-thumb-tack", "aria-hidden": "true"}), 
-              React.createElement("div", {className: "hidden-xs"}, "Posts")
+              React.createElement("div", {className: "hidden-xs"}, "My Posts")
           )
         ), 
         React.createElement("div", {className: "btn-group", role: "group", onClick: this.tab3Click}, 

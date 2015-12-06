@@ -36,12 +36,10 @@ var PostForm = React.createClass({
             <h3 className="panel-title">Create a new post</h3>
             <i className="fa fa-pencil-square-o" aria-hidden="true" data-toggle="collapse" data-target="#collapseForm"></i>
           </div>
-          <div id="collapseForm" className="collapse">
+          <div id="collapseForm" className="collapse in">
             <div className="panel-body">
-            <input ref="postContentInput" id="post_content" name="post[content]" type="text" placeholder="New Post Content Here" className="form-control" required />
-            </div>
-            <div className="panel-footer">
-              <input ref="submitPostForm" name="commit" type="submit" value="Create Post" className="btn btn-primary btn-block" onClick={this.submitForm}/>
+              <input ref="postContentInput" id="post_content" name="post[content]" type="text" placeholder="New Post Content Here" className="form-control post-form-content" required />
+              <input ref="submitPostForm" name="commit" type="submit" value="Create Post" className="btn btn-primary post-form-submit" onClick={this.submitForm}/>
             </div>
           </div>
         </div>
