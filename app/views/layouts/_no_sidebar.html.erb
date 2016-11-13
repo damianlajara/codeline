@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Codeline</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <!-- Any view using the this layout (no side-bar) EXCEPT the root path, should have a padding-top to make content visible below the navbar -->
+  <body style="<%= current_page?(root_path) ? nil : 'padding-top: 50px;' %>">
+    <%= render 'layouts/header' %>
+    <div id="main">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12 reset">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

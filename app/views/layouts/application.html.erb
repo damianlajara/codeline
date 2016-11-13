@@ -6,22 +6,22 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <%= render 'layouts/header' %>
-  <%= render 'layouts/sidebar' %>
-    <div id="main">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12 reset">
-            <%= link_to "#", class: "toggle-sidebar", "data-toggle" => "offcanvas" do %>
-              <%= fa_icon "navicon" %>
-            <% end %>
-            <%= bootstrap_flash class: "text-center" %>
-            <%= yield %>
+<body style="padding-top: 50px;">
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/sidenav' %>
+      <div id="main">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12 reset">
+              <%= link_to "#", class: "toggle-sidebar", "data-toggle" => "offcanvas" do %>
+                <%= fa_icon "navicon" %>
+              <% end %>
+              <%# bootstrap_flash class: "text-center" %>
+              <%= yield %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div> <!-- End sidebar -->
+    </div> <!-- End sidebar -->
 </body>
 </html>
